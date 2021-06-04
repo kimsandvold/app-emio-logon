@@ -1,7 +1,5 @@
-export default interface IApiResponse {
+export default interface ILogonResponse {
     token: string;
-    personal: {};
-    roles: [];
-    availableModules: []
+    date: string;
 
 }

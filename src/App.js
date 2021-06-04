@@ -9,6 +9,8 @@ import LogonForm from "./pages/Logon";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
+
+  console.log(process.env.NODE_ENV === "development" ? "DEV" : "PROD");
   document.title= "emio >> Logg inn"
   return (
     <Router>

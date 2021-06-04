@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { PostLogin } from '../xhr/AuthApiRequests';
 import '../assets/styles/Logon.scss';
 import ILogonPayload from "../interface/ILogonPayload";
+import { SetToken } from '../store/auth';
+import ILogonResponse from '../interface/ILogonResponse';
 
 const LogonForm = () => {
 
@@ -16,10 +18,10 @@ const LogonForm = () => {
             username,
             password
         };
-
-        console.log({ payload })
-
-        PostLogin(payload).finally(() => {
+        PostLogin(payload).then((response: ILogonResponse) => {
+            SetToken(response.token)
+            console.log({ response });
+        }).finally(() => {
             console.log('ferdig postet' + username)
         });
 
@@ -46,7 +48,7 @@ const LogonForm = () => {
                                 <div className="form-group pb-3">
                                     <input type="password"
                                         placeholder="Passord..."
-                                        value={password} 
+                                        value={password}
                                         onChange={(e) => setPassword(e.target.value)}
                                         className="form-control"
                                         id="exampleInputPassword1" />

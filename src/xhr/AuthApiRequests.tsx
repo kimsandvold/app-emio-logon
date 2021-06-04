@@ -1,5 +1,6 @@
 import ILogonResponse from "../interface/ILogonResponse";
 import ILogonPayload from "../interface/ILogonPayload";
+import { Uri } from "../UrlRegistry";
 
 /**
  * PostLogin
@@ -8,20 +9,16 @@ import ILogonPayload from "../interface/ILogonPayload";
  * @returns 
  */
 export const PostLogin = async (payload: ILogonPayload): Promise<any> => {
-    const debug = true;
-
-    if (debug) {
-        const json = require('../dummy/LogonResponse.json');
-        console.log({ json })
-        return json;
-    }
-    return await fetch('', {
+    const headerObject = process.env.NODE_ENV === 'development' ? {} : {
         method: 'post',
         headers: {
-            'Content-Type': 'application/application/json',
+            'Content-Type': 'application/json',
         },
         body: JSON.stringify(payload)
-    }).then(response => response.json())
+    };
+
+    return await fetch(Uri.PostLogon, headerObject)
+        .then(response => response.json())
         .then((response: ILogonResponse) => {
             return response;
         })
@@ -29,7 +26,6 @@ export const PostLogin = async (payload: ILogonPayload): Promise<any> => {
             console.log({ error });
             return error;
         });
-
 };
 
 /**
@@ -38,12 +34,14 @@ export const PostLogin = async (payload: ILogonPayload): Promise<any> => {
  */
 export const GetApps = async (): Promise<any> => {
     const token = '';
-    return await fetch('', {
-        headers: new Headers({
-            'Authorization': `Bearer ${token}`,
-            'Content-Type': 'application/json'
-        })
-    })
+
+    const headerObject = process.env.NODE_ENV === 'development' ? {} : {
+        headers: {
+            'Authorization': 'Bearer +token}',
+            'Content-Type': 'application/json',
+        },
+    };
+    return await fetch(Uri.AuthData, headerObject)
         .then(response => response.json())
         .then((response) => {
             return response;
