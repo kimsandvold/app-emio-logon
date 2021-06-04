@@ -10,6 +10,7 @@ import LogonForm from "./pages/Logon";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
+  document.title= "emio >> Logg inn"
   return (
     <Router>
 

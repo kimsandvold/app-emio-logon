@@ -1,41 +1,65 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { PostLogin } from '../xhr/AuthApiRequests';
 import '../App.css';
 import '../assets/styles/Logon.scss';
+import ILogonPayload from "../interface/ILogonPayload";
+
 const LogonForm = () => {
 
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+
+    const Logon = (e: any) => {
+        e.preventDefault();
+        const payload: ILogonPayload = {
+            username: '',
+            password: ''
+        };
+        PostLogin(payload).finally(() => {
+            console.log('ferdig postet'+username)
+        });
+        alert('Logon')
+    };
 
     return (
-        <div className="d-lg-flex half  ">
-            <div className=" order-1 order-md-2 "></div>
-            <div className="contents order-2 order-md-1">
-                <div className="container">
-                    <div className="row align-items-center justify-content-center">
-                        <div className="col-md-7">
-                            <h3>Login to <strong>Colorlib</strong></h3>
-                            <p className="mb-4">Lorem ipsum dolor sit amet elit. Sapiente sit aut eos consectetur adipisicing.</p>
-                            <form action="#" method="post">
-                                <div className="form-group first">
-                                    <label >Username</label>
-                                    <input type="text" className="form-control" placeholder="your-email@gmail.com" id="username" />
+        <div id="logon">
+            <div className="container">
+                <div className="row m-5 no-gutters shadow-lg">
+                    <div className="col-md-6 d-none d-md-block">
+                        <img src={require('../assets/images/bg.jpg').default} className="img-fluid fullheight" />
+                    </div>
+                    <div className="col-md-6 bg-white p-5">
+                        <h3 className="pb-3">Logg inn</h3>
+                        <div className="form-style">
+                            <form>
+                                <div className="form-group pb-3">
+                                    <input type="email" placeholder="Email" value={username} onChange={(e) => setUsername(e.target.value)} className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
                                 </div>
-                                <div className="form-group last mb-3">
-                                    <label>Password</label>
-                                    <input type="password" className="form-control" placeholder="Your Password" id="password" />
+                                <div className="form-group pb-3">
+                                    <input type="password" placeholder="Password" className="form-control" id="exampleInputPassword1" />
                                 </div>
-                                <div className="d-flex mb-5 align-items-center">
-                                    <label className="control control--checkbox mb-0"><span className="caption">Remember me</span>
-                                        <input type="checkbox" checked />
-                                        <div className="control__indicator"></div>
-                                    </label>
-                                    <span className="ml-auto"><a href="#" className="forgot-pass">Forgot Password</a></span>
+                                <div className="d-flex align-items-center justify-content-between">
+                                    <div className="d-flex align-items-center"><input name="" type="checkbox" value="" /> <span className="pl-2 font-weight-bold">Remember Me</span></div>
+                                    <div><a href="#">Forget Password?</a></div>
                                 </div>
-                                <input type="submit" value="Log In" className="btn btn-block btn-primary" />
+                                <div className="pb-2">
+                                    <button type="submit" className="btn btn-dark w-100 font-weight-bold mt-2" onClick={(e) => Logon(e)}>Logg inn</button>
+                                </div>
                             </form>
+                            <div className="sideline">Eller</div>
+                            <div>
+                                <button type="submit" className="btn btn-primary w-100 font-weight-bold mt-2"><i className="fa fa-facebook" aria-hidden="true"></i> Login With Facebook</button>
+                            </div>
+                            <div className="pt-4 text-center">
+                                <a href="#">Registrer deg</a>
+                            </div>
                         </div>
+
                     </div>
                 </div>
             </div>
         </div>
+
 
     );
 
