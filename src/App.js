@@ -4,7 +4,6 @@ import {
   Route,
   Link
 } from "react-router-dom";
-import './App.css';
 import ChooseLogonMethod from "./pages/ChooseLogonMethod";
 import LogonForm from "./pages/Logon";
 import 'bootstrap/dist/css/bootstrap.min.css';
