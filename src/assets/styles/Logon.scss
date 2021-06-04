@@ -1,15 +1,25 @@
 .test{background-image: red url('../../assets/images/bg.jpg')}
+
+.fillpage{
+    height:100vh;
+}
+.bg-pic{
+    background-image: url('../../assets/images/bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 #logon{
     background-color: white;
 }
-
+.sideline:before
 .form-style input{
 	border:0;
 	height:50px;
 	border-radius:0;
 border-bottom:1px solid #ebebeb;	
 }
-.form-style input:focus{
+.form-style input:f∑ocus{
 border-bottom:1px solid #007bff;	
 box-shadow:none;
 outline:0;

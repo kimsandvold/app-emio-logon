@@ -10,37 +10,25 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
 
+  const isAuth = false;
   console.log(process.env.NODE_ENV === "development" ? "DEV" : "PROD");
-  document.title= "emio >> Logg inn"
+  document.title = "emio >> Logg inn"
   return (
     <Router>
 
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
-        <a className="navbar-brand" href="#">...</a>
-        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span className="navbar-toggler-icon"></span>
-        </button>
-        <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav">
-      
-            <li className="nav-item">
-            <Link className="nav-link" to="/">Choose method</Link>
-     
-            </li>
-            <li className="nav-item">
-            <a href="" className="nav-link" to="/logon">Hjelp</a>
-            </li>
-          </ul>
-        </div>
-      </nav>
+
       <div className="">
-  
+
         <Switch>
           <Route exact path="/">
-            <ChooseLogonMethod />
+            {!isAuth ? (
+              <LogonForm />
+            ) : (
+              <ChooseLogonMethod />
+            )}
           </Route>
-          <Route exact path="/logon">
-            <LogonForm />
+          <Route exact path="/marked/apps">
+            <ChooseLogonMethod />
           </Route>
 
         </Switch>

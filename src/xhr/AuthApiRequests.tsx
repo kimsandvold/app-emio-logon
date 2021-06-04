@@ -27,17 +27,40 @@ export const PostLogin = async (payload: ILogonPayload): Promise<any> => {
             return error;
         });
 };
+/**
+ * 
+ * @param token 
+ * @returns 
+ */
+export const CheckAuth = async (token:string): Promise<any> => {
+
+    const headerObject = process.env.NODE_ENV === 'development' ? {} : {
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    };
+    return await fetch(Uri.CheckAuth, headerObject)
+        .then(response => response.json())
+        .then((response) => {
+            return response;
+        })
+        .catch((error) => {
+            console.log({ error });
+            return error;
+        });
+
+};
 
 /**
  * GetApps
  * @returns 
  */
-export const GetApps = async (): Promise<any> => {
-    const token = '';
+export const GetApps = async (token: string): Promise<any> => {
+
 
     const headerObject = process.env.NODE_ENV === 'development' ? {} : {
         headers: {
-            'Authorization': 'Bearer +token}',
+            'Authorization': 'Bearer' + token,
             'Content-Type': 'application/json',
         },
     };
@@ -55,5 +78,6 @@ export const GetApps = async (): Promise<any> => {
 
 export default {
     PostLogin,
+    CheckAuth,
     GetApps
 }

@@ -30,10 +30,11 @@ const LogonForm = () => {
     return (
         <div id="logon">
             <div className="">
-                <div className="row  no-gutters shadow-lg">
+                <div className="row  no-gutters shadow-lg fillpage">
 
-                    <div className="col-md-6 bg-white p-5">
-                        <h3 className="pb-3">Logg inn</h3>
+                    <div className="col-md-5 col-sm-6 bg-white p-5">
+                        <h1>emio</h1>
+                        <h4 className="pb-3">Logg inn</h4>
                         <div className="form-style">
                             <form>
                                 <div className="form-group pb-3">
@@ -55,8 +56,8 @@ const LogonForm = () => {
                                 </div>
                                 <div className="d-flex align-items-center justify-constent-between">
                                     <div className="d-flex align-items-center">
-                                        <input name="" type="checkbox" /> <span className="pl-2 font-weight-bold">Remember Me</span></div>
-                                    <div><a href="#">Forget Password?</a></div>
+                                        <input name="" type="checkbox" /> <span className="pl-2 font-weight-bold">Husk Meg</span></div>
+                                    <div><a href="#">Glemt passord?</a></div>
                                 </div>
                                 <div className="pb-2">
                                     <button type="submit" className="btn btn-dark w-100 font-weight-bold mt-2" onClick={(e) => Logon(e)}>Logg inn</button>
@@ -72,10 +73,9 @@ const LogonForm = () => {
                         </div>
 
                     </div>
-                    <div className="col-md-6 d-none d-md-block bg-dark">
-                        {/* 
-                        <img src={require('../assets/images/bg.jpg').default} className="img-fluid fullheight" />
-                    */}
+                    <div className="col-md-7 col-sm-6 d-sm-block d-none d-md-block bg-pic">
+                        
+                   
                     </div>
                 </div>
             </div>
