@@ -10,6 +10,7 @@ const LogonForm = () => {
     const [password, setPassword] = useState('');
 
     const Logon = (e: any) => {
+        
         e.preventDefault();
         const payload: ILogonPayload = {
             username: '',
@@ -18,7 +19,7 @@ const LogonForm = () => {
         PostLogin(payload).finally(() => {
             console.log('ferdig postet'+username)
         });
-        alert('Logon')
+
     };
 
     return (

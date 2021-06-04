@@ -1,0 +1,50 @@
+{
+    "token": "$s7dhs6dhsd55sdhhsd6hskjs/df78sdhf7sdf",
+    "personal": {
+        "id": 1,
+        "firstname": "Ola",
+        "lastname": "Normann"
+    },
+    "organizations": [
+        {
+            "id": 1,
+            "name": "Company A",
+            "roles": [
+                {
+                    "key": "superadmin",
+                    "name": "Super administrator"
+                }
+            ],
+            "availableApps": [
+                {
+                    "key": "app-1223lkqwdasd",
+                    "name": "Test app 1"
+                },
+                {
+                    "key": "app-12qwdasd",
+                    "name": "Test app 2"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "name": "Company b",
+            "roles": [
+                {
+                    "key": "companymanager",
+                    "name": "Manager"
+                },
+                {
+                    "key": "companyemployee",
+                    "name": "Ansatt"
+                }
+            ],
+            "availableApps": [
+                {
+                    "key": "app-12qwdasd",
+                    "name": "Test app 2"
+                }
+            ]
+        }
+    ]
+}
