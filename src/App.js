@@ -63,15 +63,15 @@ const App = () => {
                 <LogonOptions />
               </PrivateRoute>
             </Switch>
-            <div className="clear"></div>
-            <footer>
+
+
+          </div>
+          <div className="clear"></div>
+
+          <footer>
             <AuthFooter />
           </footer>
 
-          </div>
-
-         
-         
         </div>
       </Router>
     </ProvideAuth>
