@@ -13,5 +13,5 @@ enum UrlDev {
 export const Uri = process.env.NODE_ENV === "development" ? UrlDev : UrlProd;
 
 export default {
-    Uri
+    Uri 
 }
