@@ -28,7 +28,7 @@ export const PostLogin = async (payload: ILogonPayload): Promise<any> => {
         });
 };
 /**
- * 
+ * CheckAuth
  * @param token 
  * @returns 
  */
@@ -36,6 +36,7 @@ export const CheckAuth = async (token:string): Promise<any> => {
 
     const headerObject = process.env.NODE_ENV === 'development' ? {} : {
         headers: {
+            'Authorization': 'Bearer' + token,
             'Content-Type': 'application/json',
         },
     };

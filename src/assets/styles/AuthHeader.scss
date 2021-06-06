@@ -1,0 +1,19 @@
+#auth-header{
+    .navbar {
+    
+        padding: 0rem 1rem;
+    }
+    .bg-light {
+        background-color: #629dd0 !important
+    }
+
+    .navbar-light .navbar-nav .nav-link {
+        color: white
+    }
+    .nav-item{
+      
+    &:hover{
+        background: rgba(0,0,0,.2);
+    }
+}
+}
