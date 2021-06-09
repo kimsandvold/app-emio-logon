@@ -1,15 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { PostLogin } from '../xhr/AuthApiRequests';
 import '../assets/styles/Logon.scss';
 import ILogonPayload from "../interface/ILogonPayload";
 import { SetToken } from '../store/auth';
 import ILogonResponse from '../interface/ILogonResponse';
+import BuildPageTitle from '../functions/BuildPageTitle';
 
 const LogonForm = () => {
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [rememberMe, setRememberMe] = useState(1);
+    
+    useEffect(() => {
+        document.title = BuildPageTitle('Logg inn');
+    }, []);
 
     const Logon = (e: any) => {
 
@@ -74,8 +79,8 @@ const LogonForm = () => {
 
                     </div>
                     <div className="col-md-7 col-sm-6 d-sm-block d-none d-md-block bg-pic">
-                        
-                   
+
+
                     </div>
                 </div>
             </div>

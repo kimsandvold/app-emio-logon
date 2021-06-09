@@ -1,15 +1,19 @@
 import React, { useState, useEffect } from 'react';
+import BuildPageTitle from '../functions/BuildPageTitle';
 import { CheckAuth } from '../xhr/AuthApiRequests';
 
-const LogonOptions = () => {
+const MyPage = () => {
+
     useEffect(() => {
+        document.title = BuildPageTitle('Min side');
+
         CheckAuth('aslkdjhakjsdhajsdh').finally(() => {
             console.log('CA OK')
         })
     }, []);
     return (
-        <h1>LogonOptions</h1>
+        <h1>MyPage</h1>
     );
 }
 
-export default LogonOptions;
+export default MyPage;

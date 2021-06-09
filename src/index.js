@@ -4,6 +4,9 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+export const title = 'eMio';
+document.title= title;
+
 ReactDOM.render(
   <React.StrictMode>
     <App />

@@ -14,9 +14,10 @@ import './assets/styles/Main.scss';
 import AuthFooter from "./components/AuthFooter";
 import AuthHeader from "./components/AuthHeader";
 import Contact from "./pages/Contact";
-import LogonOptions from "./pages/LogonOptions";
-import LoadingPage from "./pages/LoadingPage";
 import { CheckAuth } from "./xhr/AuthApiRequests";
+import MyPage from "./pages/MyPage";
+import ProductInfo from "./pages/ProductInfo";
+import Splash from "./pages/Splash";
 
 const App = () => {
 
@@ -29,7 +30,7 @@ const App = () => {
   }, []);
 
   if (loading) {
-    return <LoadingPage />;
+    return <Splash />;
   }
   return (
     <ProvideAuth>
@@ -46,21 +47,27 @@ const App = () => {
             <AuthButton />
             <ul>
               <li>
-                <Link to="/public">Public Page</Link>
+                <Link to="/contact">Kontakt oss</Link>
               </li>
               <li>
-                <Link to="/protected">Protected Page</Link>
+                <Link to="/products">Produkter</Link>
+              </li>
+              <li>
+                <Link to="/mypage">Min side</Link>
               </li>
             </ul>
             <Switch>
-              <Route path="/public">
+              <Route path="/products">
+                <ProductInfo />
+              </Route>
+              <Route path="/contact">
                 <Contact />
               </Route>
               <Route path="/login">
                 <LoginPage />
               </Route>
-              <PrivateRoute path="/protected">
-                <LogonOptions />
+              <PrivateRoute path="/mypage">
+                <MyPage />
               </PrivateRoute>
             </Switch>
 

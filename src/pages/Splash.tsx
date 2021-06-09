@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const LoadingPage = (text: string) => {
+const Splash = (text: string) => {
 
     return (
         <div id="loading-page">
@@ -14,4 +14,4 @@ const LoadingPage = (text: string) => {
     );
 }
 
-export default LoadingPage;
+export default Splash;
